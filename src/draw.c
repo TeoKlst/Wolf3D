@@ -43,7 +43,7 @@ void			drawline(int x, t_wolf3d *w, t_rgb *c)
 
 	p.x = x;
 	w->im.d = mlx_get_data_addr(w->im.img, &w->im.bp, &w->im.s, &w->im.e);
-	set_colors(&skyfloor, 128, 128, 128);
+	set_colors(&skyfloor, 100, 100, 100);
 	p.y = 0;
 	while (p.y < w->ray.ystart)
 	{
@@ -56,7 +56,7 @@ void			drawline(int x, t_wolf3d *w, t_rgb *c)
 		mlx_image_put_pixel(w, &(w->im), p, c);
 		p.y++;
 	}
-	set_colors(&skyfloor, 102, 51, 0);
+	set_colors(&skyfloor, 50, 50, 50);
 	p.y = w->ray.yend;
 	while (p.y < WIN_HEIGHT)
 	{
@@ -70,15 +70,15 @@ void			colors(t_wolf3d *w, t_rgb *c)
 	if (w->player.wallside == 0)
 	{
 		if (w->player.step.x < 0)
-			set_colors(c, 0, 0, 255);
+			set_colors(c, 0, 0, 200);
 		else
-			set_colors(c, 0, 255, 0);
+			set_colors(c, 100, 0, 255);
 	}
 	if (w->player.wallside > 0)
 	{
 		if (w->player.step.y < 0)
-			set_colors(c, 255, 0, 255);
+			set_colors(c, 200, 100, 0);
 		else
-			set_colors(c, 255, 255, 0);
+			set_colors(c, 0, 200, 200);
 	}
 }
